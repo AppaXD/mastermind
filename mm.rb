@@ -5,9 +5,7 @@ s = word.size
 
 lives = 6;
 
-arg = ARGV[0]
-
-if(arg == "lives" || ARGV[1] == "lives") # optional param to set amount of lives 
+if(ARGV[0] == "lives" || ARGV[1] == "lives") # optional param to set amount of lives 
 	a = 1
 	if(arg == "lives") then a = 0 end
 	if(!ARGV[a]) 
@@ -27,9 +25,9 @@ end
 
 mode = 0
 
-if(arg == "-easy") then mode = 1 end 
+if(ARGV[0] == "-easy") then mode = 1 end 
 if(ARGV[2] == "-easy") then mode = 1 end
-if(arg == "-self") then mode = 2 end
+if(ARGV[0] == "-self") then mode = 2 end
 if(ARGV[2] == "-self") then mode = 2 end
 
 def s(g, w)
