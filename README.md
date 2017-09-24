@@ -7,8 +7,8 @@ Accepts:
 
 `-self` - The program will solve the word itself 
 
-`lives <amount>` - Set the amount of lives you want you/the computer to have.
+`lives <amount>` - Set the amount of lives you want you/the computer to have (7 by default).
 
-`length <amount` - Set the length of the word.
+`length <amount` - Set the length of the word (random by default).
 
 e.g, `ruby mm.rb -self lives 10 length 5`
