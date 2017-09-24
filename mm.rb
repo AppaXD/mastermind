@@ -5,30 +5,49 @@ s = word.size
 
 lives = 6;
 
-if(ARGV[0] == "lives" || ARGV[1] == "lives") # optional param to set amount of lives 
-	a = 1
-	if(arg == "lives") then a = 0 end
-	if(!ARGV[a]) 
-		puts "You need to specify an amount of lives! e.g., `ruby mm.rb lives 8`"
-		exit
-	end
-	
-	amnt = ARGV[a+1].to_i-1
-	
-	if(amnt < 0)
-		puts "Make sure the amount of lives is greater than 0."
-		exit
-	end
-	
-	lives = amnt
-end 
-
 mode = 0
+q = 0
 
-if(ARGV[0] == "-easy") then mode = 1 end 
-if(ARGV[2] == "-easy") then mode = 1 end
-if(ARGV[0] == "-self") then mode = 2 end
-if(ARGV[2] == "-self") then mode = 2 end
+puts word.length
+
+ARGV.each do |arg|
+	if(arg == "-easy") then mode = 1 end # optional easy-mode
+	if(arg == "-self") then mode = 2 end # optional self-solving 
+	if(arg == "lives") # set lives [optional]
+		if(!ARGV[q+1])
+			puts "You need to specify an amount of lives! e.g., `ruby mm.rb lives 8`"
+			exit
+		end
+		
+		am = ARGV[q+1].to_i-1 
+		
+		if(am < 0)
+			puts "Make sure the amount of lives is greater than 0."
+			exit
+		end
+		
+		lives = am
+	end
+	if(arg == "length")
+		if(!ARGV[q+1])
+			puts "You need to specify a word length! e.g., `ruby mm.rb length 6`"
+			exit
+		end
+		
+		am = ARGV[q+1].to_i 
+		
+		if(am < 0 || am > 12)
+			puts "Make sure the word length is greater than 0 and less than 13!"
+			exit 
+		end 
+		
+		wl = words.each_index.select{|i| words[i].size == am};
+		puts wl.size
+		word = words[wl.sample].chomp
+	end
+	
+	q+=1
+end
 
 def s(g, w)
 	return g.chomp.each_char.zip(w.each_char).count{|g,w|g==w};
