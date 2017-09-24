@@ -104,11 +104,10 @@ else
 				end
 				if(c==matchingSize) then wrds.push(wrd) end
 			end
-			puts "----------------- " + wrds.size.to_s
 			rw = words[wrds.sample].chomp
 		end
 		
-		puts rw
+		puts "The computer guessed " + rw + "."
 		
 		i = 0
 		for ch in rw.split("") do
