@@ -15,13 +15,22 @@ if(arg == "lives" || ARGV[1] == "lives") # optional param to set amount of lives
 		exit
 	end
 	
-	lives = ARGV[a+1].to_i-1
+	amnt = ARGV[a+1].to_i-1
+	
+	if(amnt < 0)
+		puts "Make sure the amount of lives is greater than 0."
+		exit
+	end
+	
+	lives = amnt
 end 
 
 mode = 0
 
 if(arg == "-easy") then mode = 1 end 
+if(ARGV[2] == "-easy") then mode = 1 end
 if(arg == "-self") then mode = 2 end
+if(ARGV[2] == "-self") then mode = 2 end
 
 def s(g, w)
 	return g.chomp.each_char.zip(w.each_char).count{|g,w|g==w};
