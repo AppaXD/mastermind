@@ -8,8 +8,6 @@ lives = 6;
 mode = 0
 q = 0
 
-puts word.length
-
 ARGV.each do |arg|
 	if(arg == "-easy") then mode = 1 end # optional easy-mode
 	if(arg == "-self") then mode = 2 end # optional self-solving 
@@ -41,9 +39,11 @@ ARGV.each do |arg|
 			exit 
 		end 
 		
-		wl = words.each_index.select{|i| words[i].size == am};
-		puts wl.size
+		puts am
+		
+		wl = words.each_index.select{|i| words[i].size == am+1};
 		word = words[wl.sample].chomp
+		s = am
 	end
 	
 	q+=1
