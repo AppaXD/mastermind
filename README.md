@@ -1,7 +1,7 @@
 # mastermind
 Mastermind challenge from Hopson Discord server.
 
-Accepts:
+Accepts these optional paramaters:
 
 `-easy` - Easy mode, displays the positions of the characters you have guessed correctly.
 
