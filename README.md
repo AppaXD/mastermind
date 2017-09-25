@@ -11,4 +11,4 @@ Accepts these optional paramaters:
 
 `length <amount` - Set the length of the word (random by default).
 
-e.g, `ruby mm.rb -self lives 10 length 5`
+e.g, `ruby mm.rb -self wordlist otherlist.txt lives 10 length 5`
