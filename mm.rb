@@ -36,8 +36,8 @@ ARGV.each do |arg|
 		
 		am = ARGV[q+1].to_i 
 		
-		if(am < 0 || am > 12)
-			puts "Make sure the word length is greater than 0 and less than 13!"
+		if(am < 0)
+			puts "Make sure the word length is greater than 0!"
 			exit 
 		end 
 		
@@ -72,6 +72,8 @@ ARGV.each do |arg|
 	q+=1
 end
 
+word.gsub!(/[^a-zA-Z0-9\-]/,"")
+
 # return amount of matching characters
 def s(g, w) 
 	return g.chomp.each_char.zip(w.each_char).count{|g,w|g==w}; 
@@ -89,13 +91,22 @@ end
 rword = true 
 matching = [] # . represents an unknown char
 
+guessed = [] # displays previously guessed characters on easy
+v = 0
+
+word.each_char do |c| 
+	guessed[v] = "." 
+	v+=1
+end
+
 if(mode == 0 || mode == 1) 
 	puts "The word is " + s.to_s + " characters long."
 	while true 
-		print ">"
-		guess = STDIN.gets
+		print ">" 
+		guess = STDIN.gets # get input 
+		guess.gsub!(/[^a-zA-Z0-9\-]/,"") # remove characters not a-z, A-Z, or 0-9.
 		
-		same = s(guess, word);
+		same = s(guess, word); # get matching characters 
 			
 		if(same == word.length)
 			puts "You won with " + (lives==0? "1" : lives.to_s) + " live" + ((lives==1||lives==0)? "" : "s") + " left!"
@@ -107,22 +118,31 @@ if(mode == 0 || mode == 1)
 			exit
 		else
 			if(mode == 0)
-				puts "You got " + same.to_s + "/" + (word.size).to_s + " correct, and you have " + lives.to_s + " lives left!"
+				puts "You got " + same.to_s + "/" + (word.size).to_s + " correct, and you have " + lives.to_s + " lives left!\n"
 			else 
 				out = ""
 				
 				i = 0
 				
 				for char in word.split("") do 
-					if(!guess[i]) 
-						out += " _ "
-					else 
-						out += (guess[i] == char ? " " + char + " " : " _ ")
+					if(guess[i]) 
+						if(guess[i] == char)
+							guessed[i] = char
+						end
 					end
 					i += 1
 				end
+				
+				for c in guessed do 
+					if(c == ".") then 
+						out += " _ "
+					else 
+						out += " " + c + " "
+					end
+				end
+				
 				puts "You got " + same.to_s + "/" + (word.size).to_s + " correct, and you have " + lives.to_s + " lives left!"
-				puts out
+				puts out + "\n"
 			end 
 			
 			lives -= 1
