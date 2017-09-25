@@ -52,7 +52,7 @@ ARGV.each do |arg|
 		word = wl.sample.chomp
 		s = am
 	end
-	if(arg == "wordlist")
+	if(arg == "file")
 		if(!ARGV[q+1])
 			puts "You need to specify a local file name."
 			exit 
