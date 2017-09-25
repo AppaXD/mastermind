@@ -39,13 +39,34 @@ ARGV.each do |arg|
 			exit 
 		end 
 		
-		puts am
+		wl = []
 		
-		wl = words.each_index.select{|i| words[i].size == am+1};
-		word = words[wl.sample].chomp
+		for w in words 
+			if(w.size == am) then wl.push(w) end
+		end
+		
+		if(wl.size < 1) 
+			puts "Couldn't find a " + am.to_s + " letter word in this list."
+			exit
+		end
+		word = wl.sample.chomp
 		s = am
 	end
-	
+	if(arg == "wordlist")
+		if(!ARGV[q+1])
+			puts "You need to specify a local file name."
+			exit 
+		end
+		
+		if(!File.exist?(ARGV[q+1]))
+			puts "That file doesn't seem to exist."
+			exit
+		end
+		
+		words = File.readlines(ARGV[q+1])
+		word = words.sample.chomp
+		s = word.size
+	end
 	q+=1
 end
 
