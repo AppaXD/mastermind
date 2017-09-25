@@ -28,7 +28,7 @@ ARGV.each do |arg|
 		
 		lives = am
 	end
-	if(arg == "-length")
+	if(arg == "-length") # set length
 		if(!ARGV[q+1])
 			puts "You need to specify a word length! e.g., `ruby mm.rb length 6`"
 			exit
@@ -54,7 +54,7 @@ ARGV.each do |arg|
 		word = wl.sample.chomp
 		s = am
 	end
-	if(arg == "-file")
+	if(arg == "-file") # set local file, make sure to do this before setting -length 
 		if(!ARGV[q+1])
 			puts "You need to specify a local file name."
 			exit 
