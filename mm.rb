@@ -11,7 +11,7 @@ q = 0
 ARGV.each do |arg|
 	if(arg == "-easy") then mode = 1 end # optional easy-mode
 	if(arg == "-self") then mode = 2 end # optional self-solving 
-	if(arg == "lives") # set lives [optional]
+	if(arg == "-lives") # set lives [optional]
 		if(!ARGV[q+1])
 			puts "You need to specify an amount of lives! e.g., `ruby mm.rb lives 8`"
 			exit
@@ -26,7 +26,7 @@ ARGV.each do |arg|
 		
 		lives = am
 	end
-	if(arg == "length")
+	if(arg == "-length")
 		if(!ARGV[q+1])
 			puts "You need to specify a word length! e.g., `ruby mm.rb length 6`"
 			exit
@@ -52,7 +52,7 @@ ARGV.each do |arg|
 		word = wl.sample.chomp
 		s = am
 	end
-	if(arg == "file")
+	if(arg == "-file")
 		if(!ARGV[q+1])
 			puts "You need to specify a local file name."
 			exit 
