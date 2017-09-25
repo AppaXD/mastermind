@@ -42,7 +42,7 @@ ARGV.each do |arg|
 		wl = []
 		
 		for w in words 
-			if(w.size == am) then wl.push(w) end
+			if(w.size == am+1) then wl.push(w) end
 		end
 		
 		if(wl.size < 1) 
