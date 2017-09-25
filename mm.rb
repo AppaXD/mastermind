@@ -1,13 +1,13 @@
-system "cls"
+system "cls" # clear screen
 
-words = File.readlines("wordslist.txt");
-word = words.sample.chomp;
+words = File.readlines("wordslist.txt"); # array of words from wordslist.txt in the same dir
+word = words.sample.chomp; # random element of words and remove \n
 
 s = word.size
 
-lives = 6;
+lives = 6; # init lives, this can be set with the -lives param
 
-mode = 0
+mode = 0 # 0 = normal, 1 = easy, 2 = self.
 q = 0
 
 ARGV.each do |arg|
@@ -72,10 +72,12 @@ ARGV.each do |arg|
 	q+=1
 end
 
-def s(g, w)
-	return g.chomp.each_char.zip(w.each_char).count{|g,w|g==w};
+# return amount of matching characters
+def s(g, w) 
+	return g.chomp.each_char.zip(w.each_char).count{|g,w|g==w}; 
 end
 
+# return amount of non-nil elements of given array
 def matchingLength(matching)
 	size = 0
 	for i in matching do 
