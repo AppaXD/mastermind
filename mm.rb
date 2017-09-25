@@ -1,3 +1,5 @@
+system "cls"
+
 words = File.readlines("wordslist.txt");
 word = words.sample.chomp;
 
