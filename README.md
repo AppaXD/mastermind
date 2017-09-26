@@ -13,4 +13,4 @@ Accepts these optional paramaters:
 
 `-file <local_file_name>` - Set the word list the program uses to the given local file (local wordslist.txt by default.)
 
-e.g, `ruby mm.rb -self file otherlist.txt -lives 10 -length 5`
+e.g, `ruby mm.rb -self -file otherlist.txt -lives 10 -length 5`
