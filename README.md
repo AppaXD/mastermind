@@ -15,6 +15,8 @@ Accepts these optional paramaters:
 
 e.g, `ruby index.rb -self -file otherlist.txt -lives 10 -length 5`
 
+
+
 Compact: 
 
 accepts no optional paramters, made to be as small as I could make it with it still being playable.
