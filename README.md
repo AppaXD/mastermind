@@ -1,5 +1,4 @@
 # mastermind
-Mastermind challenge from Hopson Discord server.
 
 Accepts these optional paramaters:
 
